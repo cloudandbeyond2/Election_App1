@@ -9,7 +9,7 @@
     ],
     "routes" : [
         {
-            "src" : "/(.*)",
+            "src" : "/api/election_data",
             "dest" : "/data.js"
         }
     ]
