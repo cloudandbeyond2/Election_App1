@@ -3,18 +3,25 @@ const express = require('express');
 const { exec } = require('child_process');
 
 const app = express();
+// const pool = new Pool({
+//   user: 'postgres',
+//   host: '34.130.15.240',
+//   database: 'newtestdb',
+//   password: 'Makeitbetter@1',
+//   port: 5432,
+// });
+
+POSTGRES_URL="postgres://default:EkF2xdqZaY6f@ep-divine-meadow-a1ukjzx0-pooler.ap-southeast-1.aws.neon.tech:5432/verceldb?sslmode=require"
+
 const pool = new Pool({
-  user: 'postgres',
-  host: '34.130.15.240',
-  database: 'newtestdb',
-  password: 'Makeitbetter@1',
-  port: 5432,
-});
+  connectionString: POSTGRES_URL ,
+}
+)
 
 app.get('/api/election_data', async (req, res) => {
   try {
     const client = await pool.connect();
-    const result = await client.query('SELECT * FROM "Election_2024"');
+    const result = await client.query('SELECT * FROM Election_2024');
     const rows = result.rows;
     await client.release();
     
