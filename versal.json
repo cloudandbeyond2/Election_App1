@@ -1,0 +1,16 @@
+{
+    "version" : 2,
+    "name" : "election-data-backend",
+    "builds" : [
+        {
+            "src" : "data.js",
+            "use" : "@vercel/node"
+        }
+    ],
+    "routes" : [
+        {
+            "src" : "/(.*)",
+            "dest" : "/data.js"
+        }
+    ]
+}
