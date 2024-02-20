@@ -38,13 +38,13 @@ const API_PATH = '/api/election_data';
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
   
-  // Open Chrome with the specified URL after the server starts
-  import('open').then(module => {
-    const open = module.default;
-    open(`http://localhost:${PORT}${API_PATH}`);
-  }).catch(error => {
-    console.error('Error opening Chrome:', error);
-  });
+  // // Open Chrome with the specified URL after the server starts
+  // import('open').then(module => {
+  //   const open = module.default;
+  //   open(`http://localhost:${PORT}${API_PATH}`);
+  // }).catch(error => {
+  //   console.error('Error opening Chrome:', error);
+  // });
 });
 try {
   // ... existing code ...
